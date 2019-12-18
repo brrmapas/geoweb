@@ -1,2 +1,2 @@
-# geoweb2
+# geoweb
 Mis mapas
