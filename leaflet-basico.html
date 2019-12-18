@@ -1,0 +1,56 @@
+<html lang="es">
+    <head>
+    <title>Leaflet básico</title>
+      <meta charset="utf-8" />
+      <!-- viewport marca un ancho para todos los dispositivos -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="autor"/>
+      <meta name="description" content="descripción página">
+      <meta name="robots" content="index,follow">
+
+        <!-- llamamos a la libreria -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+      <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+      
+
+      <style>
+            body {
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+            }
+            #map {
+              height: 100%;
+              width: 100%;
+            }
+           </style>
+ <script>
+        var map,capa1;
+        // la funcion init llama a el map y lo genera con las propiedades
+        function init(){
+            map = L.map("map",{
+            center:[41.6863, 1.8382],
+            zoom:8
+            });
+            // tileLayer es objeto
+            capa1= L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            {
+            maxZoom : 19,
+            minZoom : 1,
+            attribution : "OSM"  //es como el copyright
+            });
+            //es un método
+            capa1.addTo(map);
+            
+        }
+        </script>
+
+    </head>
+<!--LLamamos a la función Onload  que se genera en en function init-->
+    <body onLoad="init()">
+     
+        <div id="map"></div>
+                   
+    </body>
+
+</html>
