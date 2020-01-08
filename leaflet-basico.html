@@ -41,7 +41,27 @@
             });
             //es un método
             capa1.addTo(map);
-            
+            //creamos variable marker y a añadimos al mapa
+            //L.marker([41.3954, 2.16859]).addTo(map);
+            L.marker([41.3954, 2.16859]).addTo(map).bindPopup('Hola punto');// método para que salga ventana, si pones (hola mundo).openPoupap, la vntana sale abierta
+           
+            //var punto = L.marker([41.3954, 2.16859]); 
+            //punto.addTo(map);
+            //punto.bindPopup('Hola punto');
+            //punto.openPopup();
+
+
+            map.on('click', function (e) { // para crear puntos personalizados según hago click en el mapa, no se guardan 
+            console.info(e)
+            new L.circleMarker(e.latlng, {
+            color: '#ffffff',
+            fillColor: '#00ff00',
+            fillOpacity: 0.9,
+            radius: 8
+             }).addTo(map)
+             .bindPopup(e.latlng.lat + "," + e.latlng.lng)
+             .openPopup();
+});
         }
         </script>
 
