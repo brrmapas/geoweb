@@ -7,3 +7,4 @@ body {
     width: 100%;
     background-color: #ffffff
 }
+.titulo{position:absolute;top:15px;left:500px;z-index: 1000;padding:25px;color: rgb(202, 39, 39);border: solid 1px red;}
