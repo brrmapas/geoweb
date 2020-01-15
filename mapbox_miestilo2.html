@@ -36,7 +36,26 @@
             }));
             map.addControl(new mapboxgl.NavigationControl());
 
-           
+            map.on('load', function () {
+                map.addSource("carrils-bici", {
+                    type: "geojson",
+                    data: "datos/carrils-bici.geojson"//hemos añadio un archivo geojson local, se le podría meter una url
+                }); //fin map source
+
+                map.addLayer({
+                    id: "carrils-bici-layer",
+                    type: "line",
+                    source: "carrils-bici",
+                    layout: {
+                        "line-join": "round",
+                        "line-cap": "round"
+                    },
+                    paint: {
+                        "line-color": "#FF0000",
+                        "line-width": 8
+                    }
+                }); //fin add layers
+            }); //Fin load mapa
         }
     </script>
 </head>
